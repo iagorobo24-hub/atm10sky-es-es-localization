@@ -56,7 +56,7 @@ Este repositorio contiene `es_es.snbt`, el archivo de idioma de FTB Quests para 
 
 Lo que **no** se afirma:
 
-- No hay aprobación visual en el juego «por lotes». Los 83 lotes de `LOTES_ESTADO_191.*` son un registro interno de trabajo (criterios estáticos) y **no** equivalen a 83 revisiones visuales independientes; además, los totales por bloque de esos ficheros no suman 6.462 y no deben usarse como cifra oficial.
+- No hay aprobación visual en el juego «por lotes». El trabajo se organizó internamente en 83 lotes, pero eso fue una división de trabajo con criterios estáticos, no 83 revisiones visuales independientes. Los ficheros de registro de lotes se eliminaron del repositorio por tener totales inconsistentes.
 - La prosa en inglés residual se buscó con un detector heurístico; no es una garantía formal de que no quede ningún texto en inglés.
 - No se ha probado un flujo automatizado de traducción para otros modpacks.
 
@@ -171,8 +171,6 @@ Para volver atrás, restaura la copia de seguridad.
 ├── es_es.snbt                 # Archivo de idioma (candidata 191)
 ├── README.md                  # Este documento
 ├── AUDIT_REPORT.md            # Informe técnico: qué se comprobó, cómo y con qué límites
-├── LOTES_ESTADO_191.json      # Registro interno de lotes de trabajo (no es una aprobación visual; totales no fiables)
-├── LOTES_ESTADO_191.csv       # Lo mismo, en CSV
 └── screenshots/               # Capturas reales del cliente de pruebas (candidatas 183–190)
 ```
 

@@ -44,7 +44,7 @@ Cada candidata se construyó a partir de la anterior y se validó estáticamente
 
 ## 3. Qué significa «83 lotes»
 
-El trabajo se organizó internamente en 83 lotes agrupados en 9 bloques. El registro (`LOTES_ESTADO_191.json` y `.csv`) marca todos como aprobados, pero hay que leerlo con cautela:
+El trabajo se organizó internamente en 83 lotes agrupados en 9 bloques. El registro (`LOTES_ESTADO_191.json` y `.csv`) marcaba todos como aprobados, pero se **eliminó del repositorio** por lo siguiente:
 
 - La aprobación se basa en **criterios estáticos** (claves presentes, firmas sin romper, sin prosa inglesa detectada por un escáner heurístico, nombres revisados) **más el muestreo** de §4. **No** implica que cada lote se haya abierto y revisado visualmente en el juego.
 - Los totales por bloque **no son coherentes entre sí**: la suma de `claves_en` en el JSON no coincide con la de la tabla de la versión anterior de este informe ni con las 6.462 claves reales. Por eso esa tabla se ha eliminado. No usar estos ficheros como cifra oficial.
