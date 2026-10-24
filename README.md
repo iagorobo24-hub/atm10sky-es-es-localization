@@ -1,255 +1,183 @@
 <div align="center">
 
 # 🌌 All The Mods 10: To The Sky
-### 🇪🇸 Traducción al Español (`es_es`) & Auditoría de Calidad QA
+### 🇪🇸 Traducción al español (`es_es`) del libro de misiones FTB Quests
 
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.21.1-2EA44F?style=for-the-badge&logo=minecraft&logoColor=white)](https://www.minecraft.net/)
-[![NeoForge](https://img.shields.io/badge/NeoForge-21.1.250-E06C75?style=for-the-badge)](https://neoforged.net/)
-[![Mods](https://img.shields.io/badge/Mods-349%20Loaded-61AFEF?style=for-the-badge)](https://www.curseforge.com/minecraft/modpacks/all-the-mods-10-sky)
-[![Key Parity](https://img.shields.io/badge/Paridad%20Claves-100%25%20(6.462%2F6.462)-98C379?style=for-the-badge)](https://github.com/iagorobo24-hub/atm10sky-es-es-localization)
-[![QA Status](https://img.shields.io/badge/QA%20Visual%20in--game-83%2F83%20Lotes%20Aprobados-56B6C2?style=for-the-badge)](https://github.com/iagorobo24-hub/atm10sky-es-es-localization)
-[![Official Issue](https://img.shields.io/badge/ATM%20GitHub-Issue%20%231075-D19A66?style=for-the-badge&logo=github)](https://github.com/AllTheMods/All-the-mods-10-Sky/issues/1075)
+[![NeoForge](https://img.shields.io/badge/NeoForge-1.21.1-E06C75?style=for-the-badge)](https://neoforged.net/)
+[![Pack](https://img.shields.io/badge/ATM10%20To%20the%20Sky-v2.0.7-61AFEF?style=for-the-badge)](https://www.curseforge.com/minecraft/modpacks/all-the-mods-10-sky)
+[![Claves](https://img.shields.io/badge/Claves%20ausentes%20vs%20EN-0%20de%206.462-98C379?style=for-the-badge)](AUDIT_REPORT.md)
+[![Estado](https://img.shields.io/badge/Estado-candidata%20191%20%C2%B7%20revisi%C3%B3n%20est%C3%A1tica%20%2B%20muestreo-56B6C2?style=for-the-badge)](AUDIT_REPORT.md)
 
 <p align="center">
-  <b>Localización profesional, rigurosa y verificada en juego real para el sistema de misiones FTB Quests de ATM10: To the Sky.</b><br>
-  <i>Cero fallos de sintaxis · Cero firmas rotas · Vocabulario oficial alineado con los JARs de los mods · Probado en partida real con 349 mods.</i>
+  <b>Traducción al español de España de las misiones de ATM10: To the Sky v2.0.7, con revisión estática completa y muestreo en el juego.</b><br>
+  <i>Cobertura del 100 % de las claves del inglés · colores, saltos de línea e imágenes conservados · nombres alineados con los JAR de los mods cuando existen.</i>
 </p>
 
-[📖 Resumen del Proyecto](#-resumen-del-proyecto) • 
-[⚙️ Arquitectura del Pipeline](#-arquitectura-del-pipeline-con-ia--qa) • 
-[📊 Cuadro de Métricas](#-cuadro-de-mando-y-m%C3%A9tricas-de-auditor%C3%ADa) • 
-[🎮 Galería en Juego](#-evidencia-visual-en-el-juego-real) • 
-[🤝 Propuesta para el Equipo ATM](#-propuesta-para-el-equipo-de-all-the-mods) • 
-[📥 Cómo Instalar](#-c%C3%B3mo-instalar-y-jugar)
+[📖 Resumen](#-resumen) •
+[✅ Qué está verificado](#-qué-está-verificado-y-qué-no) •
+[🎮 Capturas](#-capturas-del-cliente) •
+[📥 Cómo instalar](#-cómo-instalar-y-jugar) •
+[📄 Informe técnico](AUDIT_REPORT.md)
 
 ---
 
 </div>
 
-## 📖 Resumen del Proyecto
+## 📖 Resumen
 
-A diferencia de las traducciones automáticas convencionales —que suelen romper el libro de misiones con errores de comillas, pierden códigos de colores (`&a`, `&b`) o inventan nombres que no coinciden con JEI—, este proyecto implementa un **pipeline de ingeniería de software con Inteligencia Artificial y control de calidad (QA) autónomo**:
+Este repositorio contiene `es_es.snbt`, el archivo de idioma de FTB Quests para **All The Mods 10: To the Sky v2.0.7** (Minecraft 1.21.1, NeoForge, 349 mods), en español de España.
 
-- **Fidelidad Absoluta (100% de paridad):** Las **6.462 claves** de `en_us.snbt` (54 capítulos y 3.753 misiones) están traducidas y verificadas.
-- **189 misiones reescritas desde el texto fuente:** Se eliminaron todas las paráfrasis vagas («Objetivo: haz esto») y comentarios meta heredados, traduciendo directamente las instrucciones paso a paso originales.
-- **137 guías de Skyblock conservadas:** Se mantuvieron intactas las explicaciones exclusivas en español añadidas originalmente para el inicio de isla (cribado, obtención de lava, recursos del vacío).
-- **Terminología oficial del juego:** Los nombres de máquinas e ítems se extrajeron directamente de los archivos `es_es.json` de los JARs oficiales (*Mekanism*, *Apotheosis*, *Pipez*, *Ars Nouveau*), evitando nombres inventados.
-- **Verificación visual real en el cliente:** Se ejecutó un cliente completo de Minecraft con los 349 mods y se comprobó que ninguna misión sufriera desbordamiento de texto, recortes o fallos de renderizado.
+- **Cobertura:** las **6.462 claves** de `en_us.snbt` tienen su equivalente en `es_es.snbt` (0 ausentes).
+- **Formato intacto:** se comprobó con validadores propios que no hay errores de parseo SNBT, de comillas, de macros ni de imágenes, y que cada texto conserva el mismo multiconjunto de códigos de color y saltos de línea que el inglés (`broken_signature = 0`).
+- **189 descripciones rehechas desde el inglés:** eran paráfrasis libres, con marcas «Objetivo:» o glosas añadidas; se reescribieron siguiendo el texto fuente (156 en la tanda B01/B02/B09 y 33 en la candidata 191).
+- **137 guías «solo en español» conservadas:** son textos de los autores originales del pack (69 títulos y 68 descripciones) que **no existen en el inglés**. Se dejaron tal cual por decisión del autor de la traducción, porque explican cosas útiles del inicio de la isla. Por eso no son una traducción literal del inglés.
+- **Nombres:** cuando el JAR de un mod trae `es_es.json` con un nombre distinto, se usa el oficial; si no, se deja el inglés tal como aparece en JEI. No se inventan nombres.
+- **Terminología:** «craftear» se unificó a «fabricar», salvo nombres propios oficiales.
 
----
-
-## ⚙️ Arquitectura del Pipeline con IA & QA
-
-El siguiente diagrama ilustra el flujo de trabajo integral seguido para garantizar la máxima calidad técnica y lingüística:
-
-```mermaid
-flowchart TD
-    classDef source fill:#2d3748,stroke:#4a5568,stroke-width:2px,color:#fff;
-    classDef process fill:#1a365d,stroke:#2b6cb0,stroke-width:2px,color:#fff;
-    classDef qa fill:#22543d,stroke:#38a169,stroke-width:2px,color:#fff;
-    classDef output fill:#744210,stroke:#d69e2e,stroke-width:2px,color:#fff;
-
-    A["📄 en_us.snbt Original<br/>(6.462 claves | 54 Capítulos)"]:::source --> B["🔍 Fase 1: Parseo AST y Linter Estático<br/>(Verificación sintáctica SNBT)"]:::process
-    B --> C["🎨 Fase 2: Control de Firmas y Macros<br/>(Colores &, saltos \n, {@pagebreak}, {image:...})"]:::process
-    C --> D["📚 Fase 3: Alineación Terminológica con JARs<br/>(Extracción de es_es.json de Mekanism, Apotheosis, Pipez)"]:::process
-    D --> E["🤖 Fase 4: Traducción con IA & Reescritura Fiel<br/>(189 descripciones rehechas desde el inglés)"]:::process
-    E --> F["🛡️ Fase 5: Escáner Heurístico Anti-Residuos<br/>(0 oraciones en inglés residual)"]:::process
-    F --> G["🎮 Fase 6: QA Visual en Juego Real<br/>(Cliente NeoForge 349 mods, mundo de pruebas)"]:::qa
-    G --> H["📸 Captura de Evidencias Reales in-game<br/>(Menús, árbol de misiones, popups multilínea)"]:::qa
-    H --> I["✅ Aprobación Formal de 83 Lotes<br/>(Candidata 191 Definitiva | sha 276dc838...)"]:::output
-```
-
-### Explicación de las fases clave:
-1. **Linter Estático AST:** Asegura que no exista ningún carácter mal escapado ni comillas desbalanceadas que provoquen un crash al cargar FTB Quests.
-2. **Preservación Matemática de Firmas:** Cada misión debe tener exactamente el mismo multiconjunto de códigos de color (`&6`, `&b`, `&l`, etc.) y saltos de línea que su contraparte inglesa.
-3. **Alineación con JEI/EMI:** Si un mod no tiene traducción oficial en español (como *Modern Industrialization* o *LaserIO*), su nombre se conserva exactamente como aparece en JEI para que el jugador siempre lo encuentre al buscarlo.
-4. **Validación Visual in-game:** Se verifica en el cliente de Minecraft que el texto se adapte a los tamaños de ventana sin cortes ni desbordamientos tipográficos.
+> [!IMPORTANT]
+> Esta traducción es un trabajo comunitario y no está afiliada a All The Mods. No ha sido revisada ni aprobada por el equipo de ATM.
 
 ---
 
-## 📊 Cuadro de Mando y Métricas de Auditoría
+## ✅ Qué está verificado y qué no
 
-A continuación se detallan los resultados finales validados sobre la candidata definitiva **191**:
+| Comprobación | Resultado | Cómo se comprobó |
+|---|:---:|---|
+| Claves ausentes frente a `en_us.snbt` | **0 de 6.462** | Comparación automática de claves |
+| Errores de parseo SNBT / comillas / macros / imágenes | **0** | Validador propio |
+| Firmas de color y saltos de línea rotos (`broken_signature`) | **0** | Validador propio |
+| Descripciones rehechas desde el inglés | **189** | Registro de reescrituras por candidata |
+| Guías «solo-ES» conservadas | **137** | Comparación de claves con el inglés |
+| Muestreo en el juego de la candidata 190 | ~25 pantallas, **sin errores de FTB Quests** | Cliente de prueba con los 349 mods |
+| Las 38 claves cambiadas en la candidata 191 | **No se comprobaron una a una en el juego** | Solo validación estática |
+| Revisión visual de las 3.753 misiones una a una | **No realizada** | Se hizo muestreo, no revisión completa |
 
-| Métrica de Control | Valor Obtenido | Umbral de Aprobación | Estado |
-|---|:---:|:---:|:---:|
-| **Claves Totales Analizadas** | **6.462** | 6.462 (`en_us.snbt`) | ![OK](https://img.shields.io/badge/OK-100%25-brightgreen) |
-| **Claves Faltantes (`missing_vs_en`)** | **0** | = 0 | ![Superado](https://img.shields.io/badge/0%20faltantes-brightgreen) |
-| **Errores de Parseo SNBT** | **0** | = 0 | ![Superado](https://img.shields.io/badge/0%20errores-brightgreen) |
-| **Firmas de Color / Macros Rotas** | **0** | = 0 | ![Superado](https://img.shields.io/badge/0%20rotas-brightgreen) |
-| **Prosa en Inglés Residual** | **0** | = 0 | ![Superado](https://img.shields.io/badge/0%20residual-brightgreen) |
-| **Misiones Reescritas Fieles al EN** | **189** | 100% de paráfrasis resueltas | ![Superado](https://img.shields.io/badge/189%20rehechas-brightgreen) |
-| **Guías Exclusivas Skyblock Conservadas** | **137** | Preservadas por diseño | ![Superado](https://img.shields.io/badge/137%20conservadas-brightgreen) |
-| **Nombres en Inglés Justificados (Lista Cerrada)** | **812** | Mods sin `es_es` en JAR | ![Superado](https://img.shields.io/badge/812%20documentados-brightgreen) |
-| **Lotes Formalmente Aprobados** | **83 / 83** | 83 lotes en 9 bloques | ![100% Aprobado](https://img.shields.io/badge/83%2F83-brightgreen) |
-| **Errores en Log de FTB Quests en Juego** | **0** | = 0 | ![Limpio](https://img.shields.io/badge/0%20errores%20log-brightgreen) |
+Lo que **no** se afirma:
+
+- No hay aprobación visual en el juego «por lotes». Los 83 lotes de `LOTES_ESTADO_191.*` son un registro interno de trabajo (criterios estáticos) y **no** equivalen a 83 revisiones visuales independientes; además, los totales por bloque de esos ficheros no suman 6.462 y no deben usarse como cifra oficial.
+- La prosa en inglés residual se buscó con un detector heurístico; no es una garantía formal de que no quede ningún texto en inglés.
+- No se ha probado un flujo automatizado de traducción para otros modpacks.
+
+Detalles y limitaciones en [`AUDIT_REPORT.md`](AUDIT_REPORT.md).
 
 > [!NOTE]
-> **Integridad Criptográfica:**  
-> Hash SHA-256 del archivo `es_es.snbt`:  
-> `276dc8389226097fc726d77a5d9412f339277518ec23417a6eefa48044868209`
+> **Huella del archivo** (SHA-256 de `es_es.snbt`, candidata 191):  
+> `276dc8389226097fc726d77a5d9412f339277518ec23417a6eefa48044868209`  
+> Si clonas el repositorio en Windows con `core.autocrlf=true`, Git puede cambiar los finales de línea y el hash local será distinto; el contenido almacenado en el repositorio sí coincide con esta huella.
 
 ---
 
-## 🎮 Evidencia Visual en el Juego Real
+## 🎮 Capturas del cliente
 
-Todas las capturas corresponden a partidas reales en el cliente de **ATM10: To the Sky v2.0.7** con sus **349 mods activos**:
+Son capturas **reales** del cliente de Minecraft con ATM10: To the Sky v2.0.7 y los 349 mods, tomadas durante las sesiones de prueba de las candidatas 183 a 190. **No se regeneraron con la candidata 191**, así que algunos textos pueden diferir ligeramente del archivo final. Sirven para ver el aspecto general, no como prueba de cada clave.
 
-### 1. Menú Principal y Vista General del Árbol de Misiones
+### Menú y vista general
 <table width="100%">
   <tr>
     <td width="50%" align="center">
-      <b>Menú Principal Oficial (FancyMenu ATM10)</b><br>
-      <img src="screenshots/mc_01_main_menu.jpg" alt="Menú Principal Minecraft ATM10" />
+      <b>Menú principal del pack</b><br>
+      <img src="screenshots/mc_01_main_menu.jpg" alt="Menú principal de ATM10" />
     </td>
     <td width="50%" align="center">
-      <b>Vista General de Capítulos (FTB Quests)</b><br>
-      <img src="screenshots/mc_02_quests_overview.jpg" alt="Vista General FTB Quests" />
+      <b>Vista general de capítulos</b><br>
+      <img src="screenshots/mc_02_quests_overview.jpg" alt="Vista general de FTB Quests" />
     </td>
   </tr>
 </table>
 
-### 2. Progresión Inicial y Guías de Skyblock
+### Inicio del pack
 <table width="100%">
   <tr>
     <td width="50%" align="center">
-      <b>Misión de Bienvenida</b><br>
-      <i>Texto de introducción con tildes, colores y estructura limpia</i><br>
-      <img src="screenshots/mc_03_welcome_quest.jpg" alt="Misión Bienvenida" />
+      <b>Misión de bienvenida</b><br>
+      <img src="screenshots/mc_03_welcome_quest.jpg" alt="Misión de bienvenida" />
     </td>
     <td width="50%" align="center">
-      <b>Capítulo 1: Primeros Pasos</b><br>
-      <i>Árbol de misiones de inicio (criba, mallas, barriles y crisoles)</i><br>
-      <img src="screenshots/mc_04_chapter1_starting_out.jpg" alt="Capítulo 1 Primeros Pasos" />
+      <b>Capítulo 1: primeros pasos</b><br>
+      <img src="screenshots/mc_04_chapter1_starting_out.jpg" alt="Capítulo 1" />
     </td>
   </tr>
 </table>
 
-### 3. Mods Tecnológicos Complejos y Magia
+### Capítulos de mods y ventanas de misión
 <table width="100%">
   <tr>
     <td width="50%" align="center">
-      <b>Mekanism — Árbol de Misiones</b><br>
-      <i>Línea tecnológica completa con nombres oficiales</i><br>
-      <img src="screenshots/mc_05_mekanism_chapter.jpg" alt="Mekanism Capítulo" />
+      <b>Capítulo de Mekanism</b><br>
+      <img src="screenshots/mc_05_mekanism_chapter.jpg" alt="Capítulo de Mekanism" />
     </td>
     <td width="50%" align="center">
-      <b>Mekanism — Popup de Misión</b><br>
-      <i>Colores cyan, verde y naranja preservados al 100%</i><br>
-      <img src="screenshots/mc_06_mekanism_popup.jpg" alt="Mekanism Popup" />
+      <b>Mekanism: ventana «Máquinas»</b><br>
+      <img src="screenshots/mc_06_mekanism_popup.jpg" alt="Ventana de misión de Mekanism" />
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <b>Create — Árbol de Automatización</b><br>
-      <i>Cinética, engranajes y molinos de viento</i><br>
-      <img src="screenshots/mc_10_create_chapter.jpg" alt="Create Capítulo" />
+      <b>Capítulo de Create</b><br>
+      <img src="screenshots/mc_10_create_chapter.jpg" alt="Capítulo de Create" />
     </td>
     <td width="50%" align="center">
-      <b>Ars Nouveau — Magia y Glifos</b><br>
-      <i>Texto largo con scroll vertical y descripción íntegra</i><br>
-      <img src="screenshots/mc_09_ars_nouveau_popup.jpg" alt="Ars Nouveau Popup" />
-    </td>
-  </tr>
-</table>
-
-### 4. Paginación {@pagebreak} e Imágenes Inline
-<table width="100%">
-  <tr>
-    <td width="50%" align="center">
-      <b>HNN «El Data Center» — Página 1/2</b><br>
-      <i>Subtítulo en cursiva, colores &d &5 &6 &b &2 y sin texto cortado</i><br>
-      <img src="screenshots/mc_07_hnn_datacenter.jpg" alt="HNN Página 1" />
-    </td>
-    <td width="50%" align="center">
-      <b>HNN «El Data Center» — Página 2/2</b><br>
-      <i>Paginación correcta con imagen incrustada conservada</i><br>
-      <img src="screenshots/mc_08_hnn_page2_image.jpg" alt="HNN Página 2" />
+      <b>Ars Nouveau: Mesa de Escriba</b><br>
+      <i>Texto largo con desplazamiento vertical</i><br>
+      <img src="screenshots/mc_09_ars_nouveau_popup.jpg" alt="Ventana de Ars Nouveau" />
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <b>Consejos de Construcción</b><br>
-      <i>Paginación de guía paso a paso</i><br>
-      <img src="screenshots/mc_11_building_tips_popup.jpg" alt="Consejos Construcción" />
+      <b>HNN: página 1</b><br>
+      <img src="screenshots/mc_07_hnn_datacenter.jpg" alt="HNN página 1" />
     </td>
     <td width="50%" align="center">
-      <b>Almacenamiento Funcional</b><br>
-      <i>Descripciones claras para cajones y compactadores</i><br>
-      <img src="screenshots/mc_12_storage_popup.jpg" alt="Almacenamiento" />
+      <b>HNN: página 2 con imagen incrustada</b><br>
+      <img src="screenshots/mc_08_hnn_page2_image.jpg" alt="HNN página 2" />
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <b>Consejos de construcción</b><br>
+      <img src="screenshots/mc_11_building_tips_popup.jpg" alt="Consejos de construcción" />
+    </td>
+    <td width="50%" align="center">
+      <b>Functional Storage</b><br>
+      <img src="screenshots/mc_12_storage_popup.jpg" alt="Functional Storage" />
     </td>
   </tr>
 </table>
 
 ---
 
-## 🤝 Propuesta para el Equipo de All The Mods
+## 📥 Cómo instalar y jugar
 
-<div align="center">
-
-### 🚀 *Automated Multi-Language Localization Pipeline for All ATM Modpacks*
-
-</div>
-
-**Dear AllTheMods Development Team 👋,**
-
-Managing localized quest files for massive modpacks like *All The Mods* is traditionally painful: community PRs often introduce SNBT syntax errors, break formatting codes (`&a`, `\n`), drop `{image:...}` tags, or become outdated across game patches.
-
-We have built a dedicated **AI-driven localization & QA verification pipeline** tailored specifically for Minecraft modpacks that solves this completely:
-
-1. **Zero Maintenance Burden:** Our pipeline performs full AST parsing and mathematical signature checks, delivering pull requests that are guaranteed **never to crash the quest book**.
-2. **Mod JAR Alignment:** Item and block names are extracted directly from official mod JARs (`es_es.json`) or left in clean JEI English when untranslated.
-3. **Automated In-Game Verification:** We run live clients with all 300+ mods loaded, automating UI interaction and capturing screenshot proofs before any PR is submitted.
-
-### 🌐 Open Offer to Translate All ATM Modpacks
-We would love to provide complete, high-quality, fully maintained translations (to Spanish, or other languages) for your entire roster:
-- **All The Mods 10** / **ATM10 Lite** / **ATM10 Aeronautics**
-- **All The Mods 9** / **ATM9 - To The Sky** / **ATM9 No Frills**
-- **All The Mods 11**
-- **All The Magic - Arcana** / **All The Mons**
-
-We can deliver changes formatted either as a single `.snbt` file or split across your directory structure (`config/ftbquests/quests/lang/<lang>/...`).
-
-> **Contact & Coordination:**  
-> - **GitHub Issue:** [#1075 en AllTheMods/All-the-mods-10-Sky](https://github.com/AllTheMods/All-the-mods-10-Sky/issues/1075)  
-> - **GitHub Profile:** [@iagorobo24-hub](https://github.com/iagorobo24-hub)  
-> - **Discord:** `iagorobo24` (disponible también en el servidor oficial de All The Mods)
-
----
-
-## 📥 Cómo Instalar y Jugar
-
-Si eres jugador y quieres disfrutar de esta traducción en tu partida:
-
-```mermaid
-flowchart LR
-    A["1. Descargar es_es.snbt"] --> B["2. Copiar en la carpeta lang"] --> C["3. Seleccionar Español en Minecraft"]
-```
-
-1. **Descarga el archivo:** Descarga [`es_es.snbt`](es_es.snbt) de este repositorio.
-2. **Cierra Minecraft y CurseForge.**
-3. **Copia de seguridad previa:** Ve a la carpeta de tu instancia:  
+1. Descarga [`es_es.snbt`](es_es.snbt) de este repositorio.
+2. Cierra Minecraft y CurseForge.
+3. **Haz una copia de seguridad.** Ve a la carpeta de tu instancia:  
    `curseforge\minecraft\Instances\All the Mods 10 To the Sky   ATM10SKY\config\ftbquests\quests\lang\`  
-   Haz una copia de tu `es_es.snbt` actual como `es_es.snbt.backup`.
-4. **Instala la traducción:** Pega el archivo `es_es.snbt` descargado en esa carpeta (reemplazando al anterior).
-5. **Abre el juego:** Inicia Minecraft, entra en *Opciones → Idioma*, elige **Español (España)** ¡y entra a tu partida!
+   y copia tu `es_es.snbt` actual con otro nombre (por ejemplo `es_es.snbt.backup`).
+4. Pega el `es_es.snbt` descargado en esa carpeta, reemplazando el anterior.
+5. Abre el juego y elige **Español (España)** en *Opciones → Idioma*.
+
+Para volver atrás, restaura la copia de seguridad.
+
+> [!TIP]
+> Descarga el archivo con el botón «Raw» o «Download raw file». Si lo copias a mano, asegúrate de guardarlo como UTF-8.
 
 ---
 
-## 📂 Estructura de este Repositorio
+## 📂 Contenido del repositorio
 
 ```text
-├── es_es.snbt                 # Archivo de localización final validado (Candidata 191)
-├── README.md                  # Este documento de presentación y métricas
-├── AUDIT_REPORT.md            # Informe exhaustivo de auditoría técnica y terminología
-├── LOTES_ESTADO_191.json      # Registro estructurado de aprobación de los 83 lotes
-├── LOTES_ESTADO_191.csv       # Hoja de cálculo con el desglose por bloque y lote
-└── screenshots/               # Galería de capturas 100% reales in-game de la auditoría
+├── es_es.snbt                 # Archivo de idioma (candidata 191)
+├── README.md                  # Este documento
+├── AUDIT_REPORT.md            # Informe técnico: qué se comprobó, cómo y con qué límites
+├── LOTES_ESTADO_191.json      # Registro interno de lotes de trabajo (no es una aprobación visual; totales no fiables)
+├── LOTES_ESTADO_191.csv       # Lo mismo, en CSV
+└── screenshots/               # Capturas reales del cliente de pruebas (candidatas 183–190)
 ```
 
 ---
 
 <div align="center">
-  <sub>Desarrollado y auditado con ❤️ y rigor técnico por <b>Iago Roibas</b> (@iagorobo24-hub).</sub><br>
-  <sub><i>All The Mods y FTB Quests son marcas registradas de sus respectivos creadores. Este proyecto es una contribución comunitaria de código abierto.</i></sub>
+  <sub>Traducción y revisión por <b>Iago Roibas</b> (@iagorobo24-hub), con asistencia de IA para redacción y validación.</sub><br>
+  <sub><i>All The Mods y FTB Quests son marcas de sus respectivos creadores. Proyecto comunitario sin ánimo de lucro.</i></sub>
 </div>

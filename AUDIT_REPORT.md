@@ -1,143 +1,119 @@
-# Informe Final de Traducción y Auditoría QA — ATM10: To the Sky v2.0.7
+# Informe técnico — Traducción es_es de FTB Quests en ATM10: To the Sky v2.0.7
 
-**Fecha:** 2026-10-24  
-**Auditor Senior:** Antigravity (QA Autónomo)  
-**Modpack:** *All the Mods 10: To the Sky v2.0.7* (Minecraft 1.21.1, NeoForge 21.1.250, 349 mods)  
-**Candidata Final Recomendada:** `es_es_EDITORIAL_191_FIEL_AL_EN_NO_ACTIVAR.snbt`  
-**Hash SHA-256 Candidata 191:** `276dc8389226097fc726d77a5d9412f339277518ec23417a6eefa48044868209`  
-**Hash SHA-256 Instancia Original (CurseForge):** `41d3cf485987b137b6611cee5cd48043d0ed69237c0772e4eb55bf6496308f66` (100% intacta, no modificada)
+**Revisión del informe:** 2026-10-24 (corrige la versión anterior, que contenía afirmaciones no respaldadas; ver §8)  
+**Modpack:** *All the Mods 10: To the Sky v2.0.7* (Minecraft 1.21.1, NeoForge, 349 mods)  
+**Candidata publicada:** `es_es_EDITORIAL_191_FIEL_AL_EN_NO_ACTIVAR.snbt` → `es_es.snbt` en este repositorio  
+**SHA-256 de la candidata 191:** `276dc8389226097fc726d77a5d9412f339277518ec23417a6eefa48044868209`  
+**SHA-256 del `es_es.snbt` original de CurseForge:** `41d3cf485987b137b6611cee5cd48043d0ed69237c0772e4eb55bf6496308f66`
+
+Este documento separa con claridad **lo comprobado** de **lo no comprobado**.
 
 ---
 
-## 1. Resumen Ejecutivo y Métricas Globales
+## 1. Resumen
 
-Se ha completado la auditoría integral, traducción y control de calidad (QA) estático y visual del archivo de misiones FTB Quests (`es_es.snbt`) para el modpack *All the Mods 10: To the Sky v2.0.7*. 
-
-| Métrica | Valor | Estado / Nota |
+| Concepto | Valor | Cómo se obtuvo |
 |---|---|---|
-| **Claves totales en inglés (`en_us.snbt`)** | 6.462 | Versión oficial del pack v2.0.7 |
-| **Misiones totales** | 3.753 | 54 capítulos |
-| **Claves ausentes frente al inglés (`missing_vs_en`)** | **0** | Cobertura al 100% |
-| **Errores de parseo / sintaxis SNBT** | **0** | Validado con `lang_tools.py` |
-| **Errores de comillas / balanceo (`bad_quoting`)** | **0** | Comillas internas adaptadas a «» |
-| **Macros rotas / imágenes perdidas** | **0** | Multiconjunto idéntico al inglés |
-| **Firmas rotas (`broken_signature`)** | **0** | Multiconjunto de colores y saltos idéntico al EN |
-| **Prosa inglesa residual** | **0** | 0 oraciones o párrafos en inglés residual |
-| **Descripciones largas idénticas al EN** | **0** | Todas traducidas o justificadas en lista cerrada |
-| **Descripciones rehechas desde el inglés** | **189** | 53 en B01, 80 en B02, 22 en B09, 1 tarea, 33 en 191 |
-| **Claves «solo-ES» conservadas** | **137** | 69 títulos + 68 descripciones (guías de apoyo originales) |
-| **Nombres en inglés justificados (lista cerrada)** | **812** | Mods, panales, objetos sin `es_es` en JAR |
-| **Lotes formalmente aprobados** | **83 / 83** | Aprobación 100% (criterios A, B, C, D) |
+| Claves del inglés (`en_us.snbt`) | 6.462 | Recuento directo |
+| Claves ausentes frente al inglés | **0** | Comparación automática de claves |
+| Errores de parseo SNBT, comillas, macros e imágenes | **0** | Validador propio (`lang_tools.py`) |
+| Firmas de color / saltos de línea rotas (`broken_signature`) | **0** | Validador propio |
+| Descripciones rehechas desde el inglés | **189** | 53 (B01) + 80 (B02) + 22 (B09) + 1 (título de tarea) + 33 (candidata 191) |
+| Claves «solo-ES» conservadas | **137** | 69 títulos + 68 descripciones sin equivalente en inglés |
+| Revisión visual en el juego | **Muestreo** | Ver §4 |
+
+Las cifras de la versión anterior de este informe que **no** se mantienen: «812 nombres en inglés justificados», «0 prosa inglesa residual» como garantía, «0 errores en el log en la 191», «83/83 lotes aprobados visualmente». Ver §3 y §8.
 
 ---
 
-## 2. Cadena Editorial y Evolución de Candidatas
+## 2. Cadena de candidatas
 
-El proyecto ha seguido una rigurosa metodología de versiones aisladas e inmutables:
+Cada candidata se construyó a partir de la anterior y se validó estáticamente antes de pasar a la siguiente.
 
-1. **183 (sha `f5f47ce3…`):** Incorporó las 144 claves que faltaban frente al inglés. Alcanzó `missing_vs_en = 0`. Primera pasada de QA visual en cliente con 349 mods.
-2. **184 (sha `92abca33…`):** Correcciones de estilo y puntuación («¡Bueno, ha vuelto…!», «Te damos la bienvenida»).
-3. **185 (sha `a406ce30…`):** Traducción de 107 claves traducibles dispersas (licencias AllTheMods, 38 tablas de recompensa, títulos genéricos).
-4. **186 (sha `ba892d15…`):** Localización de 18 descripciones que se encontraban en inglés antiguo dentro del archivo base. QA visual in-game (segunda pasada).
-5. **187 (sha `8822e506…`):** Unificación gramatical del verbo «fabricar» (39 claves), eliminando el anglicismo «craftear» salvo en nombres propios oficiales de Applied Energistics 2.
-6. **188 (sha `826e4d19…`):** Reescritura completa desde el inglés de 53 descripciones de **B01 Progresión** que contenían paráfrasis libres y marcas «Objetivo:». `broken_signature` se redujo de 156 a 103.
-7. **189 (sha `a9021c9a…`):** Reescritura desde el inglés de 80 descripciones de **B02 Fundamentos** (Logística, Energía, Herramientas, Trucos). Nombres oficiales validados con JARs de Mekanism y Pipez. `broken_signature` bajó de 103 a 23.
-8. **190 (sha `0484c637…`):** Reescritura de 22 claves de **B09 Equipo y Combate** (Apotheosis, Apothic Enchanting, Just Dire Things) + título de tarea «Infinitas Piedras». **`broken_signature` llegó a 0**. Cuarta pasada de QA visual en juego (~25 pantallas).
-9. **191 (sha `276dc838…` - FINAL):** Reescritura de 33 descripciones adicionales que presentaban glosas JEI/EMI añadidas o comentarios meta, garantizando fidelidad palabra por palabra al texto inglés. Unificación de «Mesa de Reforjado» / «Mesa de Reforjado Simple» y «Matriz de Inducción». QA visual in-game de las 38 claves modificadas.
-
----
-
-## 3. Aprobación Formal por Bloques y Lotes (83/83 Aprobados)
-
-Cada uno de los 83 lotes registrados en `audit_work/LOTES_MANIFEST_RECONCILIADO_83_V2.json` fue evaluado y aprobado bajo cuatro criterios objetivos:
-- **Criterio A (Fidelidad al EN):** 0 claves rotas; la estructura, colores y saltos coinciden con el original inglés.
-- **Criterio B (Prosa inglesa residual):** 0 frases o palabras vacías en inglés en textos descriptivos.
-- **Criterio C (QA Visual in-game):** Muestreo en el cliente de 349 mods, apertura de misiones rehechas, verificación de renderizado sin recortes ni desbordamientos.
-- **Criterio D (Nombres):** Lista cerrada de nombres confirmados mediante los archivos `es_es.json` de los JARs de los mods o mantenidos en inglés idénticos a JEI.
-
-### Resumen por Bloque
-
-| Bloque | Lotes | Claves EN | Ausentes | Rotas (A) | Prosa EN (B) | Estado |
-|---|---|---|---|---|---|---|
-| **B01 Progresión** | 8 | 433 | 0 | 0 | 0 | **APROBADO** |
-| **B02 Fundamentos** | 13 | 827 | 0 | 0 | 0 | **APROBADO** |
-| **B03 Almacén y Red** | 6 | 456 | 0 | 0 | 0 | **APROBADO** |
-| **B04 Energía Avanzada** | 10 | 788 | 0 | 0 | 0 | **APROBADO** |
-| **B05 Industria y Máquinas** | 12 | 1.024 | 0 | 0 | 0 | **APROBADO** |
-| **B06 Modern Industrialization** | 4 | 174 | 0 | 0 | 0 | **APROBADO** |
-| **B07 Producción y Recursos** | 13 | 873 | 0 | 0 | 0 | **APROBADO** |
-| **B08 Magia y Rituales** | 8 | 501 | 0 | 0 | 0 | **APROBADO** |
-| **B09 Equipo y Combate** | 9 | 311 | 0 | 0 | 0 | **APROBADO** |
-| **Total** | **83** | **6.462** | **0** | **0** | **0** | **83 / 83 APROBADOS** |
-
-*Registro completo disponible en:*  
-- `audit_work/LOTES_ESTADO_191.json`  
-- `audit_work/LOTES_ESTADO_191.csv`
+1. **183** — añadió las 144 claves que faltaban frente al inglés (`missing_vs_en = 0`).
+2. **184** — correcciones de estilo y puntuación.
+3. **185** — traducción de 107 claves traducibles dispersas (licencias, tablas de recompensa, títulos genéricos).
+4. **186** — localización de 18 descripciones que seguían en inglés.
+5. **187** — unificación de «fabricar» en lugar de «craftear» (39 claves).
+6. **188** — reescritura desde el inglés de 53 descripciones de la sección Progresión.
+7. **189** — reescritura de 80 descripciones de la sección Fundamentos.
+8. **190** — reescritura de 22 claves de Equipo y Combate más un título de tarea; `broken_signature` llegó a 0. Es la candidata de la que existe muestreo en el juego (§4).
+9. **191** — reescritura de 33 descripciones con glosas JEI/EMI añadidas o comentarios meta, y unificación de «Mesa de Reforjado» / «Mesa de Reforjado Simple» y «Matriz de Inducción». **Es la publicada aquí.**
 
 ---
 
-## 4. Hallazgos Terminológicos y Lista Cerrada (Criterio D)
+## 3. Qué significa «83 lotes»
 
-Tras una inspección directa de los archivos `lang/es_es.json` y `lang/en_us.json` en los JARs de los 349 mods instalados en `game/mods/`, se confirmaron las siguientes decisiones oficiales:
+El trabajo se organizó internamente en 83 lotes agrupados en 9 bloques. El registro (`LOTES_ESTADO_191.json` y `.csv`) marca todos como aprobados, pero hay que leerlo con cautela:
 
-1. **Apotheosis:**
-   - `apotheosis:block.apotheosis.reforging_table` → **Mesa de Reforjado** (oficial en el JAR).
-   - `apotheosis:block.apotheosis.simple_reforging_table` → **Mesa de Reforjado Simple** (oficial en el JAR).
-   - `apotheosis:item.apotheosis.sigil_of_rebirth.desc` → «Se usa para alimentar la Mesa de Reforjado».
-   - Nombres de nivel de mundo adoptados del modpack: *Refugio, Frontera, Ascenso, Cima, Pináculo*. Términos: *Afijos, Invasores, Gemas, Infusión*.
-2. **Productive Bees:**
-   - `productivebees:entity.productivebees.green_carpenter_bee` → **Abeja carpintero verde** (oficial).
-   - `productivebees:entity.productivebees.yellow_black_carpenter_bee` → **Abeja carpintero amarilla** (oficial).
-3. **Ars Nouveau:**
-   - `item.ars_nouveau.worn_notebook` → **Libreta Gastada** (oficial en el JAR).
-4. **Immersive Engineering:**
-   - `immersiveengineering:block.immersiveengineering.lightning_rod` → **Pararrayos** (oficial).
-5. **Mekanism:**
-   - `Cubo de Energía`, `Cable Universal`, `Tubo Presurizado`, `Transportador Logístico`, `Tubería Mecánica`, `Entrelazoportador Cuántico`, `Configurador`, `Matriz de Inducción`.
-6. **Mods sin localización en español (Mantenidos en inglés como JEI):**
-   - *Modern Industrialization, PneumaticCraft, XyCraft, LaserIO, Flux Networks, Integrated Dynamics, Transfer Labels, Dyson Cube Project, Just Dire Things.*
-   - `Foundry Walls` (Productive Metalworks / Dyenamics: sin `es_es` → se mantiene en inglés o con descripción técnica contextual).
-7. **Tareas genéricas (`task.*`):**
-   - `task.*.title: "AllRightsReserved"` → traducido uniformemente como `TodosLosDerechosReservados`.
-   - `task.08F68CC089765088.title: "Bypass Trick"` → `Truco para Saltárselo`.
+- La aprobación se basa en **criterios estáticos** (claves presentes, firmas sin romper, sin prosa inglesa detectada por un escáner heurístico, nombres revisados) **más el muestreo** de §4. **No** implica que cada lote se haya abierto y revisado visualmente en el juego.
+- Los totales por bloque **no son coherentes entre sí**: la suma de `claves_en` en el JSON no coincide con la de la tabla de la versión anterior de este informe ni con las 6.462 claves reales. Por eso esa tabla se ha eliminado. No usar estos ficheros como cifra oficial.
 
 ---
 
-## 5. Control de Calidad Visual in-game de la Candidata 191 (T2)
+## 4. Revisión en el juego
 
-El cliente QA aislado fue ejecutado con los 349 mods y el mundo de pruebas `QAFTB_FULL_349_20261022` cargado:
-- **Entorno:** 1280x720 (escalado 1.5, resolución nativa 1920x1080).
-- **Registro de capturas:** `QA183_CAPTURAS/qa191_*.jpg`.
-- **Verificación específica de las 38 claves de la 191:**
-  - *Mesa de Reforjado / Mesa de Reforjado Simple:* Títulos y descripciones verificadas; colores púrpura (`&5&l`) y azul (`&9&l`) correctos.
-  - *Matriz de Inducción (Mekanism):* Paginación 1/2 y colores verdes/azules renderizan correctamente.
-  - *Fragmentos de Eco:* Saltos de línea y explicaciones de infusión limpios.
-  - *Flux Networks:* Carga inalámbrica y materiales de red sin desbordamiento.
-  - *LaserIO:* Conexiones de nodos, chips lógicos y llaves renderizan sin cortes.
-  - *Hazte más pequeño (Tips and Tricks):* Descripción clara y directa.
-  - *ATM Star & GeOres:* Formatos de recetas multilínea sin artefactos.
-- **Muestreo de capítulos:**
-  - Se abrieron y verificaron visualmente los capítulos de Bienvenida, Capítulos 1, 2, 3 y 4 de Progresión, Energía básica, Logística básica y Almacenamiento.
-- **Cierre del cliente:**
-  - El cliente fue cerrado enviando `WM_CLOSE` a la ventana principal. El mundo fue guardado de forma limpia y el proceso Java finalizó sin errores residuales.
+**Realizado:**
+- Se ejecutó un cliente de prueba con los 349 mods y se revisaron unas **25 pantallas** de la candidata **190** (capítulos y ventanas de misión), sin errores de FTB Quests en el registro durante esa sesión.
+- Las capturas de `screenshots/` proceden de sesiones de prueba de las candidatas 183–190.
+
+**No realizado / no demostrado:**
+- Las **38 claves cambiadas en la 191** no se comprobaron una a una en el juego. La versión anterior de este informe describía una verificación visual de esas claves con capturas `qa191_*.jpg`; esas capturas **no existen** en el repositorio ni se conservaron, así que esa afirmación se retira.
+- No se abrieron una a una las 3.753 misiones. La integridad del resto se apoya únicamente en la validación estática.
 
 ---
 
-## 6. Limitaciones Honestas
+## 5. Terminología
 
-1. **Muestreo representativo:** Aunque todas las misiones rehechas y una muestra de cada capítulo fueron abiertas y capturadas en el juego, no se abrieron una a una las 3.753 misiones de forma manual in-game. La integridad del 100% de las misiones restantes se sustenta en la validación estática de SNBT y el validador estructural de firmas (`lang_tools.py`).
-2. **Guías adicionales (137 claves «solo-ES»):** El modpack original contenía 137 textos añadidos por los autores hispanohablantes (67 con «Objetivo:») que no tienen contraparte en inglés. Por decisión del usuario se han mantenido intactos para no privar al jugador de estas explicaciones.
-3. **Artefacto de renderizado tipográfico:** En algunas pantallas emergentes de FTB Quests, la primera línea de texto en negrita puede omitir visualmente la tilde de la letra «í» debido al motor de renderizado de la tipografía del pack. Se ha comprobado en el archivo fuente que el carácter almacena la tilde de forma correcta.
-4. **Imágenes con texto en inglés:** Texturas de cabecera como «Chapter 2: The Cool Parts» o «Chapter 4: The ATM Star» tienen el texto rasterizado dentro de la propia imagen PNG del modpack y no son modificables vía archivo de idiomas.
+Criterio: si el JAR del mod incluye `es_es.json` con un nombre oficial distinto del inglés, se usa ese nombre; si no, se conserva el inglés tal como aparece en JEI. No se inventan nombres.
+
+Ejemplos comprobados contra los JAR de los mods:
+
+- **Apotheosis:** Mesa de Reforjado, Mesa de Reforjado Simple.
+- **Ars Nouveau:** Libreta Gastada.
+- **Immersive Engineering:** Pararrayos.
+- **Productive Bees:** Abeja carpintero verde, Abeja carpintero amarilla.
+- **Mekanism:** Cubo de Energía, Cable Universal, Tubo Presurizado, Transportador Logístico, Tubería Mecánica, Entrelazoportador Cuántico, Configurador, Matriz de Inducción.
+
+Mods cuyos nombres se mantienen en inglés porque no se encontró localización oficial en español en su JAR (según la revisión realizada; no es una lista cerrada auditada): Modern Industrialization, PneumaticCraft, XyCraft, LaserIO, Flux Networks, Integrated Dynamics, Transfer Labels, Dyson Cube Project, Just Dire Things.
+
+Decisiones de estilo: `AllRightsReserved` → `TodosLosDerechosReservados`; «Bypass Trick» → «Truco para Saltárselo»; «craftear» → «fabricar».
 
 ---
 
-## 7. Verificación de Seguridad y Entrega
+## 6. Limitaciones
 
-1. **Instancia real del usuario (CurseForge):**
-   - Ruta: `C:\Users\iagui\curseforge\minecraft\Instances\All the Mods 10 To the Sky   ATM10SKY\config\ftbquests\quests\lang\es_es.snbt`
-   - Hash verificado al inicio y al final: `41d3cf485987b137b6611cee5cd48043d0ed69237c0772e4eb55bf6496308f66` (**100% INTACTO**).
-   - **No se ha instalado nada en la instancia real.**
-2. **Réplica de seguridad en el Chromebook:**
-   - Sincronizado vía SSH/SCP a `100.79.20.45` en `/home/iagui/atm10sky-audit/integral_20261022/sync_20261024_191_final/`.
-   - Hashes SHA-256 remotos verificados archivo por archivo.
+1. **Muestreo, no revisión completa.** Ver §4.
+2. **Prosa inglesa residual.** Se buscó con un detector heurístico (marcas como «Objetivo:», «JEI/EMI», «texto original», proporción de longitud, números ausentes). Detecta bien los casos conocidos, pero `broken_signature = 0` **no** detecta una paráfrasis que casualmente conserve los mismos colores. No es una garantía formal.
+3. **137 guías «solo-ES».** Son textos de los autores originales (67 de las descripciones contienen «Objetivo:») sin equivalente en inglés. Se conservan a propósito para no privar al jugador de esas explicaciones; implican que `es_es.snbt` no es una traducción estrictamente literal del inglés.
+4. **Artefacto de renderizado.** En algunas ventanas de misión, la «í» de la primera línea puede verse sin tilde en pantalla aunque el archivo la contiene.
+5. **Imágenes con texto en inglés.** Algunas cabeceras (p. ej. «Chapter 2: The Cool Parts», «Chapter 4: The ATM Star») tienen el texto dentro de la imagen del pack y no se pueden traducir desde el archivo de idioma.
+6. **Sin revisión del equipo de ATM.** Es una contribución comunitaria no afiliada ni aprobada por All The Mods.
+
+---
+
+## 7. Estado de la instalación
+
+- La candidata 191 está instalada en la instancia local del autor (`config/ftbquests/quests/lang/es_es.snbt`), con una copia de seguridad del original (`41d3cf48…`).
+- Existe además una copia de seguridad de la 191 y del original fuera de la instancia.
+- La versión anterior de este informe afirmaba que la instancia real estaba «100 % intacta» y que existía una réplica verificada en otro equipo; ninguna de las dos cosas es cierta o vigente (la 191 sí está instalada; la réplica ya no existe).
+
+---
+
+## 8. Correcciones respecto a la versión anterior
+
+Se corrigieron o retiraron estas afirmaciones por no estar respaldadas:
+
+| Afirmación anterior | Corrección |
+|---|---|
+| «QA visual in-game 83/83 lotes aprobados» | Aprobación por criterios estáticos más muestreo; no es revisión visual por lote |
+| Tabla por bloques que sumaba 6.462 | Eliminada: los totales de los ficheros de lotes son inconsistentes |
+| «QA visual in-game de las 38 claves de la 191» con capturas `qa191_*` | No comprobado; capturas inexistentes |
+| «812 nombres en inglés justificados» | Cifra sin respaldo; retirada |
+| «0 errores en el log de FTB Quests» (en la 191) | Solo observado en la sesión de la 190 |
+| «Prosa inglesa residual: 0» | Resultado de un detector heurístico, no garantía |
+| «Todas las capturas son de la candidata final» | Son de sesiones de las candidatas 183–190 |
+| «Instancia real 100 % intacta; no se instaló nada» | Falso: la 191 está instalada, con copia de seguridad |
+| «Réplica de seguridad verificada en otro equipo» | Ya no existe |
+| Hallazgo sobre «Foundry Walls (Productive Metalworks / Dyenamics)» | Atribución no verificada; retirada |
+| Propuesta de «pipeline automatizado multi-idioma para todos los modpacks ATM» | Retirada: no está demostrada |
