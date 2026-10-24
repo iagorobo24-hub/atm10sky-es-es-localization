@@ -36,7 +36,8 @@ Este repositorio contiene `es_es.snbt`, el archivo de idioma de FTB Quests para 
 - **Terminología:** «craftear» se unificó a «fabricar», salvo nombres propios oficiales.
 
 > [!IMPORTANT]
-> Esta traducción es un trabajo comunitario y no está afiliada a All The Mods. No ha sido revisada ni aprobada por el equipo de ATM.
+> Esta traducción es un trabajo comunitario y no está afiliada a All The Mods. No ha sido revisada ni aprobada por el equipo de ATM.  
+> Issue abierto en el repositorio oficial: [AllTheMods/All-the-mods-10-Sky#1075](https://github.com/AllTheMods/All-the-mods-10-Sky/issues/1075).
 
 ---
 
