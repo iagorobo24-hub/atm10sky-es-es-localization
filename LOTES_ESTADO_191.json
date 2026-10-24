@@ -1,0 +1,77 @@
+{
+  "candidate": "es_es_EDITORIAL_191_FIEL_AL_EN_NO_ACTIVAR.snbt",
+  "sha256": "276dc8389226097fc726d77a5d9412f339277518ec23417a6eefa48044868209",
+  "total_lotes": 83,
+  "aprobados": 83,
+  "criterios": {
+    "A_fidelidad_en": "0 broken_signatures (156 rehechas en 188-190 + 33 en 191)",
+    "B_prosa_residual": "0 prosa inglesa residual (escáner stopwords y ES==EN limpio)",
+    "C_qa_visual": "Muestreo visual in-game completado con captura de todas las rehechas clave y capítulos",
+    "D_nombres": "Lista cerrada de nombres en KEEP_EN_JUSTIFICADOS*.json e index oficial de JARs"
+  },
+  "por_bloque": {
+    "B01_PROGRESION": {
+      "lotes": 8,
+      "aprobados": 8,
+      "claves_en": 348,
+      "ausentes": 0,
+      "broken": 0
+    },
+    "B02_FUNDAMENTOS": {
+      "lotes": 13,
+      "aprobados": 13,
+      "claves_en": 934,
+      "ausentes": 0,
+      "broken": 0
+    },
+    "B03_ALMACEN_Y_RED": {
+      "lotes": 6,
+      "aprobados": 6,
+      "claves_en": 467,
+      "ausentes": 0,
+      "broken": 0
+    },
+    "B04_ENERGIA_AVANZADA": {
+      "lotes": 10,
+      "aprobados": 10,
+      "claves_en": 846,
+      "ausentes": 0,
+      "broken": 0
+    },
+    "B05_INDUSTRIA_MAQUINAS": {
+      "lotes": 12,
+      "aprobados": 12,
+      "claves_en": 1002,
+      "ausentes": 0,
+      "broken": 0
+    },
+    "B06_MODERN_INDUSTRIALIZATION": {
+      "lotes": 4,
+      "aprobados": 4,
+      "claves_en": 174,
+      "ausentes": 0,
+      "broken": 0
+    },
+    "B07_PRODUCCION_RECURSOS": {
+      "lotes": 13,
+      "aprobados": 13,
+      "claves_en": 898,
+      "ausentes": 0,
+      "broken": 0
+    },
+    "B08_MAGIA_Y_RITUALES": {
+      "lotes": 8,
+      "aprobados": 8,
+      "claves_en": 512,
+      "ausentes": 0,
+      "broken": 0
+    },
+    "B09_EQUIPO_Y_COMBATE": {
+      "lotes": 9,
+      "aprobados": 9,
+      "claves_en": 497,
+      "ausentes": 0,
+      "broken": 0
+    }
+  }
+}
