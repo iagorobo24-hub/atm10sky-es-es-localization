@@ -54,8 +54,8 @@ flowchart TD
     C --> D["📚 Fase 3: Alineación Terminológica con JARs<br/>(Extracción de es_es.json de Mekanism, Apotheosis, Pipez)"]:::process
     D --> E["🤖 Fase 4: Traducción con IA & Reescritura Fiel<br/>(189 descripciones rehechas desde el inglés)"]:::process
     E --> F["🛡️ Fase 5: Escáner Heurístico Anti-Residuos<br/>(0 oraciones en inglés residual)"]:::process
-    F --> G["🎮 Fase 6: QA Visual Automatizado en Juego<br/>(Cliente NeoForge 349 mods, sesión WinSta0)"]:::qa
-    G --> H["📸 Captura de Evidencias (35 screenshots)<br/>(Búsquedas popup, navegación de capítulos)"]:::qa
+    F --> G["🎮 Fase 6: QA Visual en Juego Real<br/>(Cliente NeoForge 349 mods, mundo de pruebas)"]:::qa
+    G --> H["📸 Captura de Evidencias Reales in-game<br/>(Menús, árbol de misiones, popups multilínea)"]:::qa
     H --> I["✅ Aprobación Formal de 83 Lotes<br/>(Candidata 191 Definitiva | sha 276dc838...)"]:::output
 ```
 
@@ -63,7 +63,7 @@ flowchart TD
 1. **Linter Estático AST:** Asegura que no exista ningún carácter mal escapado ni comillas desbalanceadas que provoquen un crash al cargar FTB Quests.
 2. **Preservación Matemática de Firmas:** Cada misión debe tener exactamente el mismo multiconjunto de códigos de color (`&6`, `&b`, `&l`, etc.) y saltos de línea que su contraparte inglesa.
 3. **Alineación con JEI/EMI:** Si un mod no tiene traducción oficial en español (como *Modern Industrialization* o *LaserIO*), su nombre se conserva exactamente como aparece en JEI para que el jugador siempre lo encuentre al buscarlo.
-4. **Validación Visual in-game:** Un script autónomo abre el cliente en el entorno de escritorio, navega por el libro de misiones, realiza búsquedas de ítems clave y toma capturas de pantalla para auditoría.
+4. **Validación Visual in-game:** Se verifica en el cliente de Minecraft que el texto se adapte a los tamaños de ventana sin cortes ni desbordamientos tipográficos.
 
 ---
 
@@ -93,56 +93,90 @@ A continuación se detallan los resultados finales validados sobre la candidata 
 
 ## 🎮 Evidencia Visual en el Juego Real
 
-Todas las capturas corresponden a la ejecución en el cliente real de **ATM10: To the Sky v2.0.7** con sus **349 mods activos**:
+Todas las capturas corresponden a partidas reales en el cliente de **ATM10: To the Sky v2.0.7** con sus **349 mods activos**:
 
-### 1. Vista General del Libro y Capítulos
+### 1. Menú Principal y Vista General del Árbol de Misiones
 <table width="100%">
   <tr>
     <td width="50%" align="center">
-      <b>Libro de Misiones — Pantalla Principal</b><br>
-      <img src="screenshots/qa191_05_quests_main.jpg" alt="Pantalla Principal Quests" />
+      <b>Menú Principal Oficial (FancyMenu ATM10)</b><br>
+      <img src="screenshots/mc_01_main_menu.jpg" alt="Menú Principal Minecraft ATM10" />
     </td>
     <td width="50%" align="center">
-      <b>Capítulo 1: Primeros Pasos (Skyblock)</b><br>
-      <img src="screenshots/qa191_chap_cap1.jpg" alt="Capítulo 1" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <b>Bienvenida y Guías Iniciales</b><br>
-      <img src="screenshots/qa191_chap_bienvenida.jpg" alt="Capítulo Bienvenida" />
-    </td>
-    <td width="50%" align="center">
-      <b>Capítulo de Energía Básica</b><br>
-      <img src="screenshots/qa191_chap_energia.jpg" alt="Capítulo Energía" />
+      <b>Vista General de Capítulos (FTB Quests)</b><br>
+      <img src="screenshots/mc_02_quests_overview.jpg" alt="Vista General FTB Quests" />
     </td>
   </tr>
 </table>
 
-### 2. Popups de Misiones Rehechas y Vocabulario Oficial
+### 2. Progresión Inicial y Guías de Skyblock
 <table width="100%">
   <tr>
     <td width="50%" align="center">
-      <b>Apotheosis — Mesa de Reforjado</b><br>
-      <i>Nombre oficial extraído del JAR y colores intactos</i><br>
-      <img src="screenshots/popup_qa191_search_mesa_reforjado.jpg" alt="Mesa de Reforjado" />
+      <b>Misión de Bienvenida</b><br>
+      <i>Texto de introducción con tildes, colores y estructura limpia</i><br>
+      <img src="screenshots/mc_03_welcome_quest.jpg" alt="Misión Bienvenida" />
     </td>
     <td width="50%" align="center">
-      <b>Mekanism — Matriz de Inducción</b><br>
-      <i>Paginación {@pagebreak} y formatos limpios</i><br>
-      <img src="screenshots/popup_qa191_search_matriz_induccion.jpg" alt="Matriz de Inducción" />
+      <b>Capítulo 1: Primeros Pasos</b><br>
+      <i>Árbol de misiones de inicio (criba, mallas, barriles y crisoles)</i><br>
+      <img src="screenshots/mc_04_chapter1_starting_out.jpg" alt="Capítulo 1 Primeros Pasos" />
+    </td>
+  </tr>
+</table>
+
+### 3. Mods Tecnológicos Complejos y Magia
+<table width="100%">
+  <tr>
+    <td width="50%" align="center">
+      <b>Mekanism — Árbol de Misiones</b><br>
+      <i>Línea tecnológica completa con nombres oficiales</i><br>
+      <img src="screenshots/mc_05_mekanism_chapter.jpg" alt="Mekanism Capítulo" />
+    </td>
+    <td width="50%" align="center">
+      <b>Mekanism — Popup de Misión</b><br>
+      <i>Colores cyan, verde y naranja preservados al 100%</i><br>
+      <img src="screenshots/mc_06_mekanism_popup.jpg" alt="Mekanism Popup" />
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <b>Misión Cumbre — ATM Star</b><br>
-      <i>Estructura de ítems requeridos sin desbordamiento</i><br>
-      <img src="screenshots/popup_qa191_search_atm_star.jpg" alt="ATM Star" />
+      <b>Create — Árbol de Automatización</b><br>
+      <i>Cinética, engranajes y molinos de viento</i><br>
+      <img src="screenshots/mc_10_create_chapter.jpg" alt="Create Capítulo" />
     </td>
     <td width="50%" align="center">
-      <b>Infusión — Fragmentos de Eco</b><br>
-      <i>Instrucciones paso a paso con colores y listas</i><br>
-      <img src="screenshots/popup_qa191_search_fragmentos_eco.jpg" alt="Fragmentos de Eco" />
+      <b>Ars Nouveau — Magia y Glifos</b><br>
+      <i>Texto largo con scroll vertical y descripción íntegra</i><br>
+      <img src="screenshots/mc_09_ars_nouveau_popup.jpg" alt="Ars Nouveau Popup" />
+    </td>
+  </tr>
+</table>
+
+### 4. Paginación {@pagebreak} e Imágenes Inline
+<table width="100%">
+  <tr>
+    <td width="50%" align="center">
+      <b>HNN «El Data Center» — Página 1/2</b><br>
+      <i>Subtítulo en cursiva, colores &d &5 &6 &b &2 y sin texto cortado</i><br>
+      <img src="screenshots/mc_07_hnn_datacenter.jpg" alt="HNN Página 1" />
+    </td>
+    <td width="50%" align="center">
+      <b>HNN «El Data Center» — Página 2/2</b><br>
+      <i>Paginación correcta con imagen incrustada conservada</i><br>
+      <img src="screenshots/mc_08_hnn_page2_image.jpg" alt="HNN Página 2" />
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <b>Consejos de Construcción</b><br>
+      <i>Paginación de guía paso a paso</i><br>
+      <img src="screenshots/mc_11_building_tips_popup.jpg" alt="Consejos Construcción" />
+    </td>
+    <td width="50%" align="center">
+      <b>Almacenamiento Funcional</b><br>
+      <i>Descripciones claras para cajones y compactadores</i><br>
+      <img src="screenshots/mc_12_storage_popup.jpg" alt="Almacenamiento" />
     </td>
   </tr>
 </table>
@@ -165,7 +199,7 @@ We have built a dedicated **AI-driven localization & QA verification pipeline** 
 
 1. **Zero Maintenance Burden:** Our pipeline performs full AST parsing and mathematical signature checks, delivering pull requests that are guaranteed **never to crash the quest book**.
 2. **Mod JAR Alignment:** Item and block names are extracted directly from official mod JARs (`es_es.json`) or left in clean JEI English when untranslated.
-3. **Automated In-Game Verification:** We run live headless/windowed clients with all 300+ mods loaded, automating UI interaction and capturing screenshot proofs before any PR is submitted.
+3. **Automated In-Game Verification:** We run live clients with all 300+ mods loaded, automating UI interaction and capturing screenshot proofs before any PR is submitted.
 
 ### 🌐 Open Offer to Translate All ATM Modpacks
 We would love to provide complete, high-quality, fully maintained translations (to Spanish, or other languages) for your entire roster:
@@ -210,7 +244,7 @@ flowchart LR
 ├── AUDIT_REPORT.md            # Informe exhaustivo de auditoría técnica y terminología
 ├── LOTES_ESTADO_191.json      # Registro estructurado de aprobación de los 83 lotes
 ├── LOTES_ESTADO_191.csv       # Hoja de cálculo con el desglose por bloque y lote
-└── screenshots/               # Galería de capturas in-game de la auditoría visual
+└── screenshots/               # Galería de capturas 100% reales in-game de la auditoría
 ```
 
 ---
