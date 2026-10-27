@@ -1,0 +1,22 @@
+psm:
+  psm_version: "0.3.0-alpha"
+  spec_version: "0.1.4-alpha"
+  map_version: "0.1.0"
+  map_created_at: "2026-10-27"
+  map_last_updated: "2026-10-27"
+  profile: "lite"
+  status: "draft"
+  source:
+    repository: "https://github.com/iagorobo24-hub/atm10sky-es-es-localization"
+    ref: "main"
+    commit: "2ecb34d4f9969ad550e5eed4c9377fa785e29db2"
+    audit_mode: "remote"
+    worktree: "n_a"
+  canonical_docs:
+    readme_md: "README.md"
+  coverage:
+    domains: "unknown"
+    flows: "unknown"
+    boundaries: "unknown"
+    invariants: "unknown"
+domains: []
